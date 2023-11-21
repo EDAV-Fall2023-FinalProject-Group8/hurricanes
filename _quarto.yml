@@ -6,11 +6,11 @@ execute:
   echo: true
 
 book:
-  title: "YOUR PROJECT TITLE"
+  title: "OUR PROJECT TITLE...pending"
   author:
-    - AUTHOR1 (UNI1)
-    - AUTHOR2 (UNI2)
-  repo-url: https://github.com/YOUR_GITHUB_ACCOUNT/REPO_NAME
+    - Yelaman Sain (ys3525)
+    - Blanca Herreros De Tejada (beh2154)
+  repo-url: https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git
   date: today
   page-footer:
     right: |
