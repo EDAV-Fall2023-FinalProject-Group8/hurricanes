@@ -1,5 +1,14 @@
 # Data
+As previously mentioned, this project leverages information from the National Oceanic and Atmospheric Administration. In particular, it focuses on a hurricane dataset named HURDAT2, “a comma-delimited, text format with six-hourly information on the location, maximum winds, central pressure, and (beginning in 2004) size of all known tropical cyclones and subtropical cyclones”.
+
+https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending
 
 ## Description
+To tackle the analysis of this dataset and investigate the trends of extreme weather events we will conduct the following:
+We will use historical data on precipitation and wind speed, specifically focusing on metrics like the highest 2-minute wind speed and days with precipitation above certain thresholds. This data spans several decades, providing a comprehensive timeline for analysis.
+By plotting time series graphs and conducting statistical trend analysis, we can identify patterns of change in the frequency and intensity of extreme weather events. For instance, an increase in the number of days exceeding a certain wind speed or precipitation threshold over time would indicate a trend towards more severe weather conditions.
+We will cross-reference the dates and locations of high wind speed events with those of extreme precipitation events. The dataset's temporal coverage allows for the examination of seasonal patterns.
 
 ## Missing value analysis
+The raw data contains a lot of information, however, the specific names of each feature and described here: https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf. 
+The data contained in the dataset includes some information from 1851 and was recently updated on April 7th, 2023 to include in the 2022 hurricane season. However, at a closer inspection we can quickly observe that the more relevant information for the purposes of our project ranges from 2004 to 2023.
