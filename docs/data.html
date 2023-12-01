@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OUR PROJECT TITLE…pending - 2&nbsp; Data</title>
+<title>Extreme Weather Events Analysis in Hurricane Prone States in The USA - 2&nbsp; Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">OUR PROJECT TITLE…pending</a> 
+      <a href="./">Extreme Weather Events Analysis in Hurricane Prone States in The USA</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -142,8 +176,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</a></li>
+  <li><a href="#techincal-description" id="toc-techincal-description" class="nav-link active" data-scroll-target="#techincal-description"><span class="header-section-number">2.1</span> Techincal Description</a></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research Plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">2.4</span> References</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -167,11 +203,252 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="description" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
+<section id="techincal-description" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="techincal-description"><span class="header-section-number">2.1</span> Techincal Description</h2>
+<p>As previously mentioned, this project leverages information from National Hurricane Center (NHC) which is a part of the National Oceanic and Atmospheric Administration. In particular, we focus on a hurricane dataset named <a href="https://www.nhc.noaa.gov/data/#hurdat">HURDAT2</a>, "a comma-delimited, text format with six-hourly information on the location, maximum winds, central pressure, and (beginning in 2004) size of all known tropical cyclones and subtropical cyclones". Below is a short description of the way the NHC collects the data directly from their website:</p>
+<p>The NHC conducts a post-storm analysis of each tropical cyclone in its area of responsibility to determine the official assessment of the cyclone’s history. This analysis makes use of all available observations, including those that may not have been available in real time. In addition, NHC conducts ongoing reviews of any retrospective tropical cyclone analyses brought to its attention, and on a regular basis updates the historical record to reflect changes introduced via the Best Track Change Committee (Landsea et al.&nbsp;2004a, 2004b, 2008, 2012, Hagen et al.&nbsp;2012, Kieper et al.&nbsp;2016, and Delgado et al.&nbsp;2018). NHC has traditionally disseminated the tropical cyclone historical database in a format known as HURDAT (short for HURricane DATabase – Jarvinen et al.&nbsp;1984). [1]</p>
+<p>Listed below is the description of the features in the dataset:</p>
+<ol type="1">
+<li><p>Record identifier: This code is used to identify records that correspond to landfalls or to indicate the reason for inclusion of a record not at the standard synoptic times (0000, 0600, 1200, and 1800 UTC). For the years 1851-1970 and 1991 onward, all continental United States landfalls are marked, while international landfalls are only marked from 1951 to 1970 and 1991 onward. The landfall identifier (L) is the only identifier that will appear with a standard synoptic time record. The remaining identifiers (see table above) are only used with asynoptic records to indicate the reason for their inclusion. Inclusion of asynoptic data is at the discretion of the Hurricane Specialist who performed the post-storm analysis; standards for inclusion or non-inclusion have varied over time. Identification of asynoptic peaks in intensity (either wind or pressure) may represent either system's lifetime peak or a secondary peak.</p></li>
+<li><p>Time: Nearly all HURDAT2 records correspond to the synoptic times of 0000, 0600, 1200, and 1800. Recording best track data to the nearest minute became available within the b-decks beginning in 1991 and some tropical cyclones since that year have the landfall best track to the nearest minute.</p></li>
+<li><p>Status: Tropical cyclones with an ending tropical depression status (the dissipating stage) were first used in the best track beginning in 1871, primarily for systems weakening over land. Tropical cyclones with beginning tropical depression (the formation stage) were first included in the best track beginning in 1882. Subtropical depression and subtropical storm status were first used beginning in 1968 at the advent of routine satellite imagery for the Atlantic basin. The low status – first used in 1987 - is for cyclones that are not tropical cyclone or subtropical cyclones, nor extratropical cyclones. These typically are assigned at the beginning of a system's lifecycle and/or at the end of a system's lifecycle. The tropical wave status – first used in 1981 - is almost exclusively for cyclones that degenerate into an open trough for a time, but then redevelop later in time into a tropical cyclone (for example, AL10-DENNIS in 1981 between 13 and 15 August). The disturbance status is similar to tropical wave and was first used in 1980. It should be noted that for tropical wave and disturbance status the location given is the approximate position of the lower tropospheric vorticity center, as the surface center no longer exists for these stages.</p></li>
+<li><p>Maximum sustained surface wind: This is defined as the maximum 1-min average wind associated with the tropical cyclone at an elevation of 10 m with an unobstructed exposure. Values are given to the nearest 10 kt for the years 1851 through 1885 and to the nearest 5 kt from 1886 onward. A value is assigned for every cyclone at every best track time. Note that the non-developing tropical depressions of 1967 did not have intensities assigned to them in the b-decks. These are indicated as "-99" currently, but will be revised and assigned an intensity when the Atlantic hurricane database reanalysis project (Hagen et al.&nbsp;2012) reaches that hurricane season.</p></li>
+<li><p>Central Pressure: These values are given to the nearest millibar. Originally, central pressure best track values were only included if there was a specific observation that could be used explicitly. Missing central pressure values are noted as "-999". Beginning in 1979, central pressures have been analyzed and included for every best track entry, even if there was not a specific in-situ measurement available.</p></li>
+<li><p>Wind Radii – These values have been best tracked since 2004 and are thus available here from that year forward with a resolution to the nearest 5 nm. Best tracks of the wind radii have not been done before 2004 and are listed as "-999" to denote missing data. Note that occasionally when there is a non-synoptic time best track entry included for either landfall or peak intensity, that the wind radii best tracks were not provided. These instances are also denoted with a "-999" in the database.</p></li>
+<li><p>Radius of Maximum Wind: These values have been best tracked only starting in 2021. Before 2021, the missing data are denoted as "-999".</p></li>
+</ol>
 </section>
-<section id="missing-value-analysis" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</h2>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research Plan</h2>
+<p>To tackle the analysis of this dataset and investigate the trends of extreme weather events we will conduct the following:</p>
+<ul>
+<li><p>We will use historical data on precipitation and wind speed specifically focusing on metrics like the highest 2-minute wind speed and days with precipitation above certain thresholds. This data spans several decades, providing a comprehensive timeline for analysis.</p></li>
+<li><p>By plotting time series graphs and conducting statistical trend analysis, we can identify patterns of change in the frequency and intensity of extreme weather events. For instance, an increase in the number of days exceeding a certain wind speed or precipitation threshold over time would indicate a trend toward more severe weather conditions.</p></li>
+<li><p>We will cross-reference the dates and locations of high wind speed events with those of extreme precipitation events. The dataset’s temporal coverage allows for the examination of seasonal patterns.</p></li>
+</ul>
+</section>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
+<p><strong>Preprocessing</strong></p>
+<p>The raw data contains a lot of information, however, the specific names of each feature and described above. The data contained in the dataset includes some information from 1851 and was recently updated on April 7th, 2023 to include in the 2022 hurricane season. We can quickly observe that due to changes in the methods of obtaining the data, and collection of more metrics over the years the data includes a lot of the missing entries, listed as ‘-999’.</p>
+<p>Before we proceed some preprocessing steps need to be completed. We first read the data into a data frame and <em>reshape</em> the data by moving the header data into columns for each point.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'zoo'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(AER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: car</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: carData</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lmtest</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: sandwich</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: survival</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"Data/hurdat2-1851-2022-050423.txt"</span>, <span class="at">header=</span>F, <span class="at">as.is=</span>T)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(raw_data) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"DATE"</span>, <span class="st">"TIME_UTC"</span>, <span class="st">"POINT_TYPE"</span>, <span class="st">"STATUS"</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"LATITUDE"</span>, <span class="st">"LONGITUDE"</span>, <span class="st">"WINDSPEED_KT"</span>, <span class="st">"PRESURE_MB"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NE_34KT"</span>, <span class="st">"SE_34KT"</span>, <span class="st">"NW_34_KT"</span>, <span class="st">"SW_34_KT"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NE_50KT"</span>, <span class="st">"SE_50KT"</span>, <span class="st">"NW_50_KT"</span>, <span class="st">"SW_50_KT"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"NE_64KT"</span>, <span class="st">"SE_64KT"</span>, <span class="st">"NW_64_KT"</span>, <span class="st">"SW_64_KT"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">=</span> <span class="fu">cbind</span>(<span class="at">HID =</span> <span class="cn">NA</span>, <span class="at">HNAME =</span> <span class="cn">NA</span>, raw_data)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>HID <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"AL|EP|CP"</span>, panel<span class="sc">$</span>DATE), panel<span class="sc">$</span>DATE, <span class="cn">NA</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>HNAME <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"AL|EP|CP"</span>, panel<span class="sc">$</span>DATE), panel<span class="sc">$</span>TIME_UTC, <span class="cn">NA</span>)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>HID <span class="ot">=</span> <span class="fu">na.locf</span>(panel<span class="sc">$</span>HID)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>HNAME <span class="ot">=</span> <span class="fu">na.locf</span>(panel<span class="sc">$</span>HNAME)</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">=</span> panel[<span class="sc">!</span><span class="fu">grepl</span>(<span class="st">"AL|EP|CP"</span>, panel<span class="sc">$</span>DATE), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>We then convert the latitudes and longitudes from hemispheric values (NSEW) to decimal values (southern and western values are negative). We also add a DECADE column.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>LATITUDE <span class="ot">=</span> <span class="fu">trimws</span>(panel<span class="sc">$</span>LATITUDE)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>LONGITUDE <span class="ot">=</span> <span class="fu">trimws</span>(panel<span class="sc">$</span>LONGITUDE)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>LATITUDE <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"S"</span>, panel<span class="sc">$</span>LATITUDE), <span class="fu">paste0</span>(<span class="st">"-"</span>, panel<span class="sc">$</span>LATITUDE), panel<span class="sc">$</span>LATITUDE)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>LONGITUDE <span class="ot">=</span> <span class="fu">ifelse</span>(<span class="fu">grepl</span>(<span class="st">"W"</span>, panel<span class="sc">$</span>LONGITUDE), <span class="fu">paste0</span>(<span class="st">"-"</span>, panel<span class="sc">$</span>LONGITUDE), panel<span class="sc">$</span>LONGITUDE)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>LATITUDE <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">sub</span>(<span class="st">"N|S"</span>, <span class="st">""</span>, panel<span class="sc">$</span>LATITUDE))</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>LONGITUDE <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">sub</span>(<span class="st">"E|W"</span>, <span class="st">""</span>, panel<span class="sc">$</span>LONGITUDE))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: NAs introduced by coercion</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>STATUS <span class="ot">=</span> <span class="fu">trimws</span>(panel<span class="sc">$</span>STATUS)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>panel<span class="sc">$</span>DECADE <span class="ot">=</span> <span class="fu">paste0</span>(<span class="fu">substr</span>(panel<span class="sc">$</span>DATE, <span class="dv">1</span>, <span class="dv">3</span>), <span class="st">"0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Save the processed data frame to a .csv file</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(panel, <span class="st">"Data/hurricanes.csv"</span>, <span class="at">row.names=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><strong>Missing Values</strong></p>
+<p>Here we are going to load in the data-set and since the missing values are repressented as “-999”, we will change these into NA.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>hurrs <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"Data/hurricanes.csv"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>hurrs[hurrs <span class="sc">==</span> <span class="sc">-</span><span class="dv">999</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the number of missing values per column</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>missing_values <span class="ot">&lt;-</span> <span class="fu">sapply</span>(hurrs, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the number of missing values per column</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(missing_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>         HID        HNAME         DATE     TIME_UTC   POINT_TYPE       STATUS 
+           0            0            0            0            0            0 
+    LATITUDE    LONGITUDE WINDSPEED_KT   PRESURE_MB      NE_34KT      SE_34KT 
+           0            1            0        30948        43802        43802 
+    NW_34_KT     SW_34_KT      NE_50KT      SE_50KT     NW_50_KT     SW_50_KT 
+       43802        43802        43802        43802        43802        43802 
+     NE_64KT      SE_64KT     NW_64_KT     SW_64_KT          NA.       DECADE 
+       43802        43802        43802        43802        52903            0 </code></pre>
+</div>
+</div>
+<p>Although we see how missing data we have per feature, let’s make a couple of plots to visualize the missing data.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(reshape2)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the data to long format for plotting</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> reshape2<span class="sc">::</span><span class="fu">melt</span>(hurrs, <span class="at">id.vars =</span> <span class="fu">c</span>(<span class="st">"HID"</span>, <span class="st">"HNAME"</span>))</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a heatmap of missing data</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(long_data, <span class="fu">aes</span>(<span class="at">x =</span> variable, <span class="at">y =</span> HID)) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill =</span> <span class="fu">is.na</span>(value))) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Present"</span>, <span class="st">"Missing"</span>)) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>(),  <span class="co"># Remove y-axis ticks</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>())   <span class="co"># Optionally, also remove y-axis text</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>In this plot we omit the y-ticks showing the Hurricane ID’s as the purpose of this chart is to display the missing values, and the IDS themselves aren’t necessary. Let’s how much missing data there is by year.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:plm':
+
+    between, lag, lead</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:car':
+
+    recode</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your dataframe is named hurricanes_df</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure the DATE column is treated as a string to extract the year</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>hurrs<span class="sc">$</span>DATE <span class="ot">&lt;-</span> <span class="fu">as.character</span>(hurrs<span class="sc">$</span>DATE)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the year from the DATE column</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>hurrs<span class="sc">$</span>YEAR <span class="ot">&lt;-</span> <span class="fu">substr</span>(hurrs<span class="sc">$</span>DATE, <span class="dv">1</span>, <span class="dv">4</span>)</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Count the number of non-missing entries for each year</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>yearly_data_count <span class="ot">&lt;-</span> hurrs <span class="sc">%&gt;%</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(YEAR) <span class="sc">%&gt;%</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(DATE)))</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(yearly_data_count, <span class="fu">aes</span>(<span class="at">x =</span> YEAR, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> , <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Non-Missing Entries by Year"</span>, <span class="at">x =</span> <span class="st">"Year"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This is a little hard to read, so let’s make another plot with decades instead of years</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>decade_data_count <span class="ot">&lt;-</span> hurrs <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(DECADE) <span class="sc">%&gt;%</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(DECADE)))</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a bar plot</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(decade_data_count, <span class="fu">aes</span>(<span class="at">x =</span> DECADE, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Number of Non-Missing Entries by Decade"</span>, <span class="at">x =</span> <span class="st">"Decade"</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="references" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
+<ul>
+<li>[1] <a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf" class="uri">https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf</a></li>
+</ul>
 
 
 </section>
