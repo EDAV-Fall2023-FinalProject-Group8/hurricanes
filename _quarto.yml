@@ -6,7 +6,7 @@ execute:
   echo: true
 
 book:
-  title: "OUR PROJECT TITLE...pending"
+  title: "Extreme Weather Events Analysis in Hurricane Prone States in The USA"
   author:
     - Yelaman Sain (ys3525)
     - Blanca Herreros De Tejada (beh2154)
