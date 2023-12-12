@@ -1,6 +1,26 @@
 # Results
 
 ```{r}
-# this is a test code
+library(ggplot2)
+library(tidyr)
+```
+
+```{r}
+
+df = read.csv("Data/hurricanes_2.csv")
+
+df$Year <- as.integer(format(as.Date(as.character(df$DATE), "%Y%m%d"), "%Y"))
+
+# Count the number of hurricanes per year
+hurricanes_per_year <- aggregate(HID ~ Year, data = df, function(x) length(unique(x)))
+
+# Create a time series plot
+ggplot(hurricanes_per_year, aes(x = Year, y = HID)) +
+  geom_line() +  # Line plot
+  geom_point() +  # Add points
+  labs(title = "Hurricane Frequency Over Time",
+       x = "Year",
+       y = "Number of Hurricanes") +
+  theme_minimal()
 
 ```
