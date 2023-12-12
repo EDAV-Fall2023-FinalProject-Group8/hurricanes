@@ -169,6 +169,10 @@ ggplot(decade_data_count, aes(x = DECADE, y = Count)) +
 
 As expected we can observe, that the majority of the data rests in the latter parts of the timeline, with most of the data properly observed in the second half of the 20ths century and onwards. This information will guide our steps for future analysis as we focus on more recent decades (from the 1950s) to observe the trends in hurricanes in our specified states.
 
+```{r}
+write.csv(hurrs, "Data/hurricanes_2.csv", row.names=F)
+
+```
 ## References
 
 -   \[1\] <https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf>
