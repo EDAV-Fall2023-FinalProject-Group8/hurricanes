@@ -1,6 +1,67 @@
 # Results
 
+```{r include = FALSE}
+# Import relevant libraries
+library(tidyverse)
+library(ggplot2)
+library(Lock5withR)
+library(openintro)
+library(dplyr)
+library(plotly)
+# install.packages('ggrepel')
+library(ggrepel)
+# install.packages('GGally')
+library(GGally)
+# install.packages('vcd')
+library(vcd)
+# install.packages("remotes")
+library(remotes)
+remotes::install_github("timelyportfolio/parcoords")
+library(parcoords)
+```
+
 ```{r}
-# this is a test code
+# STEP 1: PREPROCESSING
+hurricanes = read.csv('Data/hurricanes.csv')
+head(hurricanes)
+```
+
+```{r}
+# keep only rows that are either a hurricaine or a tropical storm
+hurricanes2 <- subset(hurricanes, STATUS %in% c('HU', 'TS'))
+hurricanes2$DATE <- as.integer(format(as.Date(as.character(hurricanes2$DATE), "%Y%m%d"), "%Y"))
+hurricanes2 <- subset(hurricanes2, DATE > 1950)
+```
+
+```{r}
+# Boxplot to compare the windspeed and pressure of hurricanes vs tropical storms
+
+# 1 Boxplot of wind speed according to storm type
+ggplot(hurricanes2, aes(x = hurricanes2$STATUS , y = hurricanes2$WINDSPEED_KT )) +
+  geom_boxplot() +
+  ggtitle("Boxplot of Wind Speed (KT) according to Storm Type") +
+  labs(y = "WindSpeed", x = "Storm Type")
+```
+
+```{r}
+# 1 Boxplot of PRESSURE according to storm type
+ggplot(hurricanes2, aes(x = hurricanes2$STATUS , y = hurricanes2$PRESURE_MB )) +
+  geom_boxplot() +
+  ggtitle("Boxplot of Wind Speed (KT) according to Storm Type") +
+  labs(y = "Weight", x = "Feed Type")
+```
+
+```{r}
+# what if we look at the values of pressure that are not -999 (which I think it was not measured correctly)
+hurricanes2 <- subset(hurricanes2, PRESURE_MB != -999)
+
+ggplot(hurricanes2, aes(x = hurricanes2$STATUS , y = hurricanes2$PRESURE_MB )) +
+  geom_boxplot() +
+  ggtitle("Boxplot of Wind Speed (KT) according to Storm Type") +
+  labs(y = "Weight", x = "Feed Type")
+
+```
+
+```{r}
 
 ```
