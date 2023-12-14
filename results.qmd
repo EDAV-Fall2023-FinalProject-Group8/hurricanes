@@ -1,6 +1,6 @@
 # Results
 
-Knowing the impact that certain storm types, particularly Hurricanes have on our economies, we are interested in leveraging visualizations to better understand them. By creating a varied range of plots, we will be able to study both the categorical and numerical variables present in our collection of data.
+Knowing the impact that certain storm types, particularly Hurricanes, have on our economies, we are interested in leveraging visualizations to better understand them. By creating a varied range of plots, we will be able to study both the categorical and numerical variables present in our collection of data.
 
 ```{r include = FALSE}
 
@@ -117,6 +117,8 @@ ggplot(status_counts_df, aes(x = "", y = Frequency, fill = Status)) +
   scale_fill_brewer(palette = "Set3") 
 ```
 
+The plot below depicts a time series analysis showing the yearly ratio of hurricanes (referred to as 'HU' storms) to the total number of storms from around 1850 to the 2000s. Each data point represents the proportion of hurricanes in a given year relative to all storms recorded in that year. The plot does not show a clear trend over time but does exhibit considerable year-to-year variability. There are periods where the ratio of hurricanes to total storms is higher, interspersed with periods where the ratio is lower. We know that over time stations began collecting a lot more data than in the 1800s and 1900s, which would explain why there seems to be proportionally more hurricanes earlier compared to recent years.
+
 ```{r}
 library(dplyr)
 df$Year <- as.integer(format(as.Date(as.character(df$DATE), "%Y%m%d"), "%Y"))
@@ -145,6 +147,10 @@ ggplot(yearly_data, aes(x = Year, y = Ratio)) +
        y = "Ratio of 'HU' to Total Storms") +
   theme_minimal()
 ```
+
+The following two plots show heat maps overlaid on a geographical map of the Atlantic region, showing the concentration of hurricane intensity, . The color gradient, as indicated by the legend labeled 'level', suggests that the highest concentrations, shown in yellow, are around the Gulf of Mexico and the southeastern coast of the United States, with concentrations diminishing outward in a gradient of colors from green to purple, indicating lower levels.
+
+The second plot is similar in nature but covers a global scale. It also displays a heat map with a legend indicating the concentration levels of the same or similar variable. The highest concentration is focused around the Gulf of Mexico and the southeastern United States, with a notable peak, shown again in yellow.
 
 ```{r}
 # Filter out invalid latitude and longitude values if necessary
@@ -224,7 +230,11 @@ ggplot(hurricanes2, aes(x = hurricanes2$STATUS , y = hurricanes2$PRESURE_MB )) +
 
 ```
 
-So what has been the highest mean wind speed recorded in a Hurricane? and which Hurricane was this? Turns out Hurricane Hattie was the most notable in terms of wind speed. This Hurricane had a mean wind speed of 115 KT. It hit the coastal regions of Honduras and Guatemala in 1961 with an estimated monetary damage of around \$60 million. Additionally, there were 319 fatalities.
+So what has been the highest mean wind speed recorded in a Hurricane? and which Hurricane was this? Turns out Hurricane Hattie was the most notable in terms of wind speed. This Hurricane had a mean wind speed of 115 KT. It hit the coastal regions of Honduras and Guatemala in 1961 with an estimated monetary damage of around $60 million. Additionally, there were 319 fatalities. The following plots show the path of hurricane Hattie.
+
+Hurricane Hattie stands out historically for its extreme intensity, with the highest mean wind speed ever recorded in a hurricane, reaching a staggering 115 knots. This formidable storm carved a path of destruction through the coastal regions of Honduras and Guatemala in 1961, leaving a legacy of devastation in its wake. The economic impact of Hattie was profound, with damage estimates soaring to approximately $60 million—a significant sum for the time, which would be much higher in today's dollars after adjusting for inflation. The human cost was even more tragic, with the storm claiming the lives of 319 individuals.
+
+Hattie's intensity was not just limited to its wind speeds; the hurricane also brought torrential rains, leading to widespread flooding and landslides that exacerbated the damage to infrastructure and agriculture, further hindering the affected regions' recovery efforts. The name 'Hattie' was subsequently retired due to the severity of the storm, a practice that underscores the particularly destructive nature of certain hurricanes. The legacy of Hattie is also reflected in the changes it spurred in disaster preparedness and response strategies, highlighting the importance of meteorological research and advancements in hurricane forecasting. The data and lessons gleaned from Hurricane Hattie continue to inform current understanding of tropical cyclones and their potential impacts on vulnerable coastal communities.
 
 ```{r, height = 300}
 # what are the storms with the highest mean windspeed??
@@ -261,7 +271,7 @@ ggplot() +
            aes(x = long, y = lat, map_id = region),
            fill = "white", color = "black", size = 0.25) +
   geom_point(data = hattie, aes(x = LONGITUDE, y = LATITUDE),
-             color = "red", size = 3) +
+             color = "red", size = 1) +
   labs(title = "Map of Hurricane Hattie Location") +
   theme_minimal()
 ```
