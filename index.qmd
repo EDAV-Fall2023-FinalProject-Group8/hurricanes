@@ -20,7 +20,7 @@ Recurrently, the states that see themselves most impacted by these tropical cycl
 
 -   South Carolina
 
-To narrow the scope of the project, we will focus on these locations, which according to the National Oceanic and Atmospheric Administration (NOAA) is among the top states for hurricane frequency. The data that we are working on is obtained from the Hurricane Research Division at the National Oceanic and Atmospheric Administration.
+In this project we will analyze the data provided by the Hurricane Research Division at the National Oceanic and Atmospheric Administration (NOAA) in order to observe trends in storms and hurricanes over the past centuries.
 
 **References**
 

@@ -36,6 +36,8 @@ To tackle the analysis of this dataset and investigate the trends of extreme wea
 
 **Preprocessing**
 
+Note: The steps for obtaining and initial processing of data use references to Michael Minn's work \[2\].
+
 The raw data contains a lot of information, however, the specific names of each feature and described above. The data contained in the dataset includes some information from 1851 and was recently updated on April 7th, 2023 to include in the 2022 hurricane season. We can quickly observe that due to changes in the methods of obtaining the data, and collection of more metrics over the years the data includes a lot of the missing entries, listed as '-999'.
 
 Before we proceed some preprocessing steps need to be completed. We first read the data into a data frame and *reshape* the data by moving the header data into columns for each point.
@@ -173,6 +175,9 @@ As expected we can observe, that the majority of the data rests in the latter pa
 write.csv(hurrs, "Data/hurricanes_2.csv", row.names=F)
 
 ```
+
 ## References
 
 -   \[1\] <https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf>
+-   \[2\] <https://michaelminn.net/tutorials/r-hurricanes/index.html>
+

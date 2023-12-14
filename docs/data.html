@@ -230,6 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="missing-value-analysis" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
 <p><strong>Preprocessing</strong></p>
+<p>Note: The steps for obtaining and initial processing of data use references to Michael Minn’s work [2].</p>
 <p>The raw data contains a lot of information, however, the specific names of each feature and described above. The data contained in the dataset includes some information from 1851 and was recently updated on April 7th, 2023 to include in the 2022 hurricane season. We can quickly observe that due to changes in the methods of obtaining the data, and collection of more metrics over the years the data includes a lot of the missing entries, listed as ‘-999’.</p>
 <p>Before we proceed some preprocessing steps need to be completed. We first read the data into a data frame and <em>reshape</em> the data by moving the header data into columns for each point.</p>
 <div class="cell">
@@ -394,6 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.4" class="anchored" data-anchor-id="references"><span class="header-section-number">2.4</span> References</h2>
 <ul>
 <li>[1] <a href="https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf" class="uri">https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2021.pdf</a></li>
+<li>[2] <a href="https://michaelminn.net/tutorials/r-hurricanes/index.html" class="uri">https://michaelminn.net/tutorials/r-hurricanes/index.html</a></li>
 </ul>
 
 
