@@ -1,5 +1,3 @@
-### This is a short description of our project. We'll change once we actually choose it.
+### Analysis if Historical Hurricane Data.
 
-this is a test to confirm git push works on my end (Blanca)
-=======
-Change the read me on Yelaman branch
+In this project we provide an analysis of historical data on storms, cyclone, depressions, and hurricanes provided by the Hurricane Research Division at the National Oceanic and Atmospheric Administration (NOAA). In addition to the analysis and vizualiztions, the rendered book also includes an interactive map that allows the user to select a named hurricane and observe its path along with wind radii at certain thresholds. 
