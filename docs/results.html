@@ -194,7 +194,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Knowing the impact that certain storm types, particularly Hurricanes have on our economies, we are interested in leveraging visualizations to better understand them. By creating a varied range of plots, we will be able to study both the categorical and numerical variables present in our collection of data.</p>
+<p>Knowing the impact that certain storm types, particularly Hurricanes, have on our economies, we are interested in leveraging visualizations to better understand them. By creating a varied range of plots, we will be able to study both the categorical and numerical variables present in our collection of data.</p>
 <p>The first thing we were keen to observe was the trends in storm incidence over the years. These include hurricanes, tropical storms, as well as other type of climatological phenomena. The first plot shown below presents the upward incidence of storms. This positive trend is due to two main factors. Firstly, the increment in data being recorded. Furthermore, a noticeable increase in tropical storm frequency since the 19th century.</p>
 <div class="cell">
 <details>
@@ -299,6 +299,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="results_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>The plot below depicts a time series analysis showing the yearly ratio of hurricanes (referred to as ‘HU’ storms) to the total number of storms from around 1850 to the 2000s. Each data point represents the proportion of hurricanes in a given year relative to all storms recorded in that year. The plot does not show a clear trend over time but does exhibit considerable year-to-year variability. There are periods where the ratio of hurricanes to total storms is higher, interspersed with periods where the ratio is lower. We know that over time stations began collecting a lot more data than in the 1800s and 1900s, which would explain why there seems to be proportionally more hurricanes earlier compared to recent years.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -333,6 +334,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="results_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<p>The following two plots show heat maps overlaid on a geographical map of the Atlantic region, showing the concentration of hurricane intensity, . The color gradient, as indicated by the legend labeled ‘level’, suggests that the highest concentrations, shown in yellow, are around the Gulf of Mexico and the southeastern coast of the United States, with concentrations diminishing outward in a gradient of colors from green to purple, indicating lower levels.</p>
+<p>The second plot is similar in nature but covers a global scale. It also displays a heat map with a legend indicating the concentration levels of the same or similar variable. The highest concentration is focused around the Gulf of Mexico and the southeastern United States, with a notable peak, shown again in yellow.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
@@ -416,7 +419,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="results_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>So what has been the highest mean wind speed recorded in a Hurricane? and which Hurricane was this? Turns out Hurricane Hattie was the most notable in terms of wind speed. This Hurricane had a mean wind speed of 115 KT. It hit the coastal regions of Honduras and Guatemala in 1961 with an estimated monetary damage of around $60 million. Additionally, there were 319 fatalities.</p>
+<p>So what has been the highest mean wind speed recorded in a Hurricane? and which Hurricane was this? Turns out Hurricane Hattie was the most notable in terms of wind speed. This Hurricane had a mean wind speed of 115 KT. It hit the coastal regions of Honduras and Guatemala in 1961 with an estimated monetary damage of around $60 million. Additionally, there were 319 fatalities. The following plots show the path of hurricane Hattie.</p>
+<p>Hurricane Hattie stands out historically for its extreme intensity, with the highest mean wind speed ever recorded in a hurricane, reaching a staggering 115 knots. This formidable storm carved a path of destruction through the coastal regions of Honduras and Guatemala in 1961, leaving a legacy of devastation in its wake. The economic impact of Hattie was profound, with damage estimates soaring to approximately $60 million—a significant sum for the time, which would be much higher in today’s dollars after adjusting for inflation. The human cost was even more tragic, with the storm claiming the lives of 319 individuals.</p>
+<p>Hattie’s intensity was not just limited to its wind speeds; the hurricane also brought torrential rains, leading to widespread flooding and landslides that exacerbated the damage to infrastructure and agriculture, further hindering the affected regions’ recovery efforts. The name ‘Hattie’ was subsequently retired due to the severity of the storm, a practice that underscores the particularly destructive nature of certain hurricanes. The legacy of Hattie is also reflected in the changes it spurred in disaster preparedness and response strategies, highlighting the importance of meteorological research and advancements in hurricane forecasting. The data and lessons gleaned from Hurricane Hattie continue to inform current understanding of tropical cyclones and their potential impacts on vulnerable coastal communities.</p>
 <div class="cell" height="300">
 <details>
 <summary>Code</summary>
@@ -461,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> long, <span class="at">y =</span> lat, <span class="at">map_id =</span> region),</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> hattie, <span class="fu">aes</span>(<span class="at">x =</span> LONGITUDE, <span class="at">y =</span> LATITUDE),</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Map of Hurricane Hattie Location"</span>) <span class="sc">+</span></span>
 <span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
