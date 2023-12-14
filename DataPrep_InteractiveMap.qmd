@@ -1,9 +1,8 @@
----
-title: "DataPrep_interactiveMap"
-editor: visual
----
+## This document includes the processing of the data file to create a JSON file to be used for the Interactive Map.
 
 ```{r}
+library(dplyr)
+
 # Load the dataset
 df = read.csv("Data/hurricanes_2.csv")
 df$HNAME <- gsub("^\\s+", "", df$HNAME)
