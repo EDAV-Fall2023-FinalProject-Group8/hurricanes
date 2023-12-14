@@ -1,3 +1,8 @@
+---
+title: "resultsFinal"
+editor: visual
+---
+
 # Results
 
 Knowing the impact that certain storm types, particularly Hurricanes have on our economies, we are interested in leveraging visualizations to better understand them. By creating a varied range of plots, we will be able to study both the categorical and numerical variables present in our collection of data.

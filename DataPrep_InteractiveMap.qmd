@@ -1,0 +1,66 @@
+---
+title: "DataPrep_interactiveMap"
+editor: visual
+---
+
+```{r}
+# Load the dataset
+df = read.csv("Data/hurricanes_2.csv")
+df$HNAME <- gsub("^\\s+", "", df$HNAME)
+
+# Filter the dataframe to include only hurricanes (assuming 'STATUS' column with 'HU' value indicates hurricanes)
+hurricanes_df <- subset(df, STATUS == 'HU' & HNAME != 'UNNAMED')
+
+hurricanes_df$HNAME <- paste(hurricanes_df$HNAME, "(", hurricanes_df$YEAR, ")", sep = "")
+hurricanes_df$DATE <- paste(substr(hurricanes_df$DATE, 5, 6), "/", substr(hurricanes_df$DATE, 7, 8), "/", substr(hurricanes_df$DATE, 1, 4))
+
+
+hurricanes_df <- hurricanes_df %>%
+  rename(NW_34KT = NW_34_KT, SW_34KT = SW_34_KT, 
+         NW_50KT = NW_50_KT, SW_50KT = SW_50_KT,
+         NW_64KT = NW_64_KT, SW_64KT = SW_64_KT)
+
+good_names <- c("NW_34KT", "SW_34KT", "SE_34KT", "NE_34KT", 
+                      "NW_50KT", "SW_50KT", "SE_50KT", "NE_50KT", 
+                      "NW_64KT", "SW_64KT", "SE_64KT", "NE_64KT")
+
+old_names <- c("NW_34_KT", "SW_34_KT", "SE_34KT", "NE_34KT", 
+                      "NW_50_KT", "SW_50_KT", "SE_50KT", "NE_50KT", 
+                      "NW_64_KT", "SW_64_KT", "SE_64KT", "NE_64KT")
+
+if(all(good_names %in% names(hurricanes_df))) {
+    # Calculate average wind radius for 34 kt
+    hurricanes_df$AVG_RADIUS_34_KT <- rowMeans(hurricanes_df[, c("NW_34KT", "SW_34KT", "SE_34KT", "NE_34KT")], na.rm = TRUE)
+
+    # Calculate average wind radius for 50 kt
+    hurricanes_df$AVG_RADIUS_50_KT <- rowMeans(hurricanes_df[, c("NW_50KT", "SW_50KT", "SE_50KT", "NE_50KT")], na.rm = TRUE)
+
+    # Calculate average wind radius for 64 kt
+    hurricanes_df$AVG_RADIUS_64_KT <- rowMeans(hurricanes_df[, c("NW_64KT", "SW_64KT", "SE_64KT", "NE_64KT")], na.rm = TRUE)
+} else {
+    message("Not all required columns are present in the dataframe.")
+}
+hurricanes_df <- hurricanes_df %>%
+  select(
+    -c("NW_34KT", "SW_34KT", "SE_34KT", "NE_34KT", 
+       "NW_50KT", "SW_50KT", "SE_50KT", "NE_50KT", 
+       "NW_64KT", "SW_64KT", "SE_64KT", "NE_64KT")
+  )
+
+```
+
+```{r}
+library(jsonlite)
+
+# Create a list for each hurricane ID with the required data
+hurricanes_list <- split(hurricanes_df, hurricanes_df$HNAME)
+hurricanes_json <- lapply(names(hurricanes_list), function(name) {
+  list(id = name, points = hurricanes_list[[name]][, c('DATE', 'LATITUDE', 'LONGITUDE', 'WINDSPEED_KT', 'AVG_RADIUS_34_KT', 'AVG_RADIUS_50_KT', 'AVG_RADIUS_64_KT')])
+})
+
+# Convert the list to JSON
+hurricanes_json_str <- toJSON(hurricanes_json, pretty = TRUE)
+
+# Save the JSON data to a file
+write(hurricanes_json_str, 'hurricanes.json')
+```

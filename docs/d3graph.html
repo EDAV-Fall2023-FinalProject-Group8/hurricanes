@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Extreme Weather Events Analysis in Hurricane Prone States in The USA</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/hurricanes.git" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -160,12 +160,82 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>This interactive map offers a dynamic and informative visualization of historical hurricane paths over the Atlantic Ocean.</p>
+<p>Users can interactively select a specific hurricane from a dropdown menu, prompting the map to display the selected hurricane’s path. This path is plotted with precision, marking the hurricane’s progression over time based on its recorded geographical coordinates.</p>
+<p><strong>Note:</strong> The map features circles drawn at each significant point along a hurricane’s path, where each circle’s size corresponds to the hurricane’s wind radii – a measure of the storm’s reach. Notably, these wind radii data points began to be systematically recorded <strong>after 2004</strong>.</p>
+<ul>
+<li><p>Blue circle represents the wind radius of at least 34kt</p></li>
+<li><p>Yellow circle represents the wind radius of at least 50kt</p></li>
+<li><p>Red circle represents the wind radius of at least 64kt</p></li>
+</ul>
 <style>
   * {
     font-family: sans-serif;
   }
+ 
+  #map-container {
+    max-width: 100%;
+  }
+
+  #map {
+    width: 100%;
+    height: 500px;
+  }
+
+  #dropdown-container {
+    margin-top: 10px;  /* Adjust as needed */
+    margin-bottom: 10px;
+    text-align: center; /* Centers the dropdown if the map is wider */
+  }
+  
+  .hurricane-path {
+    fill: none;
+    stroke: blue;
+    stroke-width: 2;
+  }
+  
+  .hurricane-radius-34_KT, .hurricane-radius-50_KT, .hurricane-radius-64_KT {
+    stroke-width: 1.5;
+    stroke-opacity: 0.6;
+  }
+
+  .hurricane-radius-34_KT { stroke: blue; }
+  .hurricane-radius-50_KT { stroke: orange; }
+  .hurricane-radius-64_KT { stroke: red; }
+  .country {
+    fill: #ccc;
+    stroke: #fff;
+    stroke-width: 0.5;
+  }
+
+  .tooltip {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+  }
 </style>
-<div id="plot">
+<div id="map-container">
+<div id="map">
+
+</div>
+<p><strong>Select hurricane in the drop down menu below:</strong></p>
+<div id="dropdown-container">
+
+</div>
+</div>
+<p>The map not only traces the hurricane’s route but also enriches the user experience with detailed information. As users hover over any point along the hurricane’s path, a tooltip appears, presenting key data such as the date, wind speed, and exact geographic coordinates. This feature allows for a detailed examination of the hurricane’s behavior and intensity at different stages of its journey.</p>
+<p>The interactive map serves as a valuable tool for both educational and research purposes in the field of hurricane studies and meteorology. For educators and students, it provides a visual and engaging method to understand the patterns and impacts of hurricanes.</p>
+<p>By visualizing historical data, researchers can identify common routes, observe changes in hurricane behaviors, and assess the frequency and intensity of these natural disasters in different regions. Such insights are crucial for improving predictive models and developing more effective strategies for disaster preparedness and response.</p>
+<p>The visualization of long-term hurricane data can contribute to understanding how global warming and other environmental changes are influencing hurricane behavior. This knowledge is vital for policymakers and environmental planners to make informed decisions aimed at mitigating the impacts of climate change and protecting vulnerable coastal communities.</p>
+<p>Overall, this interactive hurricane tracking map stands as a testament to the power of data visualization in transforming raw data into meaningful insights, enhancing our understanding of natural phenomena and aiding in the development of solutions to some of the most pressing environmental challenges.</p>
+<div id="tooltip" class="tooltip" style="opacity: 0;">
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
@@ -427,7 +497,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git/edit/main/d3graph.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/namepending.git/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
+    <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/hurricanes.git/edit/main/d3graph.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/EDAV-Fall2023-FinalProject-Group8/hurricanes.git/issues/new" class="toc-action">Report an issue</a></p></div></div></div>
     <div class="nav-footer-right">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>

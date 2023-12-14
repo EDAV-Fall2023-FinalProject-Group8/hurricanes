@@ -1,13 +1,98 @@
 # Interactive graph
 
+This interactive map offers a dynamic and informative visualization of historical hurricane paths over the Atlantic Ocean.
+
+Users can interactively select a specific hurricane from a dropdown menu, prompting the map to display the selected hurricane's path. This path is plotted with precision, marking the hurricane's progression over time based on its recorded geographical coordinates.
+
+**Note:** The map features circles drawn at each significant point along a hurricane's path, where each circle's size corresponds to the hurricane's wind radii -- a measure of the storm's reach. Notably, these wind radii data points began to be systematically recorded **after 2004**.
+
+-   Blue circle represents the wind radius of at least 34kt
+
+-   Yellow circle represents the wind radius of at least 50kt
+
+-   Red circle represents the wind radius of at least 64kt
+
+```{=html}
 <style>
   * {
     font-family: sans-serif;
   }
-</style> 
+ 
+  #map-container {
+    max-width: 100%;
+  }
 
-<div id="plot">
-</div>
+  #map {
+    width: 100%;
+    height: 500px;
+  }
 
+  #dropdown-container {
+    margin-top: 10px;  /* Adjust as needed */
+    margin-bottom: 10px;
+    text-align: center; /* Centers the dropdown if the map is wider */
+  }
+  
+  .hurricane-path {
+    fill: none;
+    stroke: blue;
+    stroke-width: 2;
+  }
+  
+  .hurricane-radius-34_KT, .hurricane-radius-50_KT, .hurricane-radius-64_KT {
+    stroke-width: 1.5;
+    stroke-opacity: 0.6;
+  }
+
+  .hurricane-radius-34_KT { stroke: blue; }
+  .hurricane-radius-50_KT { stroke: orange; }
+  .hurricane-radius-64_KT { stroke: red; }
+  .country {
+    fill: #ccc;
+    stroke: #fff;
+    stroke-width: 0.5;
+  }
+
+  .tooltip {
+    position: absolute;
+    text-align: center;
+    width: 120px;
+    height: 90px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+  }
+</style>
+```
+::: {#map-container}
+::: {#map}
+:::
+
+**Select hurricane in the drop down menu below:**
+
+::: {#dropdown-container}
+:::
+:::
+
+The map not only traces the hurricane's route but also enriches the user experience with detailed information. As users hover over any point along the hurricane's path, a tooltip appears, presenting key data such as the date, wind speed, and exact geographic coordinates. This feature allows for a detailed examination of the hurricane's behavior and intensity at different stages of its journey.
+
+The interactive map serves as a valuable tool for both educational and research purposes in the field of hurricane studies and meteorology. For educators and students, it provides a visual and engaging method to understand the patterns and impacts of hurricanes.
+
+By visualizing historical data, researchers can identify common routes, observe changes in hurricane behaviors, and assess the frequency and intensity of these natural disasters in different regions. Such insights are crucial for improving predictive models and developing more effective strategies for disaster preparedness and response.
+
+The visualization of long-term hurricane data can contribute to understanding how global warming and other environmental changes are influencing hurricane behavior. This knowledge is vital for policymakers and environmental planners to make informed decisions aimed at mitigating the impacts of climate change and protecting vulnerable coastal communities.
+
+Overall, this interactive hurricane tracking map stands as a testament to the power of data visualization in transforming raw data into meaningful insights, enhancing our understanding of natural phenomena and aiding in the development of solutions to some of the most pressing environmental challenges.
+
+::: {#tooltip .tooltip style="opacity: 0;"}
+:::
+
+```{=html}
 <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+```
+```{=html}
 <script src="scripts/myscript.js"></script>
+```
