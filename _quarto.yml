@@ -4,9 +4,10 @@ project:
 
 execute:
   echo: true
+  warning: false
 
 book:
-  title: "Extreme Weather Events Analysis in Hurricane Prone States in The USA"
+  title: "Analysis of Historial Hurricane Data"
   author:
     - Yelaman Sain (ys3525)
     - Blanca Herreros De Tejada (beh2154)
